@@ -1,0 +1,8 @@
+pandexo.engine
+plotly
+multirex
+scikit-learn
+mpi4py
+taurex
+
+
