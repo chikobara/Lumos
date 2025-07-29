@@ -1,8 +1,10 @@
-.venv
+.venv311
 examples/tmp
 examples/papers/DZF-MLBiosignatureClassification/Phoenix
 examples/papers/DZF-MLBiosignatureClassification/pandeia_data-3.0rc3
 examples/papers/DZF-MLBiosignatureClassification/spec_earth
 examples/papers/DZF-MLBiosignatureClassification/spec_data
-
-
+examples/papers/DZF-MLBiosignatureClassification/processed_data
+Models
+pandeia_data-3.0.tar.gz
+Models.zip
