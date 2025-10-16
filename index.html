@@ -46,11 +46,22 @@
     <header class="fixed top-0 left-0 right-0 z-50 glass-effect">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <h1 class="text-2xl font-bold text-white tracking-widest">LUMOS</h1>
-            <div class="hidden md:flex space-x-8 text-lg">
+            <div class="hidden md:flex space-x-8 text-lg items-center">
                 <a href="#challenge" class="hover:text-cyan-400 transition-colors">The Challenge</a>
                 <a href="#ai-pipeline" class="hover:text-cyan-400 transition-colors">The AI</a>
                 <a href="#game" class="hover:text-cyan-400 transition-colors">The Game</a>
-                <a href="https://github.com/bunrots/Lumos" target="_blank" class="hover:text-cyan-400 transition-colors">Code</a>
+                <!-- GitHub Icon Dropdown -->
+                <div id="header-repo-container" class="relative">
+                    <button id="header-repo-button" class="text-white hover:text-cyan-400 transition-colors">
+                        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.942.359.308.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div id="header-repo-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-slate-800/80 backdrop-blur-lg rounded-lg shadow-lg border border-slate-700 py-1 transition-all duration-300 opacity-0">
+                        <a href="https://github.com/chikobara/Lumos" target="_blank" class="block px-4 py-2 text-white hover:bg-slate-700">AI Repository</a>
+                        <a href="https://github.com/bunrots/Lumos" target="_blank" class="block px-4 py-2 text-white hover:bg-slate-700">Game Repository</a>
+                    </div>
+                </div>
             </div>
             <div class="md:hidden">
                 <a href="https://github.com/bunrots/Lumos" target="_blank" class="text-white text-lg font-bold">GitHub</a>
@@ -64,10 +75,17 @@
             <div class="absolute inset-0 bg-black/60"></div>
             <div class="text-center z-10 px-4">
                 <h1 class="text-6xl md:text-8xl font-black text-white uppercase tracking-wider">LUMOS</h1>
-                <p class="mt-4 text-xl md:text-2xl text-cyan-300 max-w-3xl mx-auto">Accelerating the Search for Life in the Universe with Artificial Intelligence</p>
-                <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#game" class="bg-cyan-500 text-slate-900 font-bold py-3 px-8 rounded-lg text-lg hover:bg-cyan-400 transition-all transform hover:scale-105">Explore the Game</a>
-                    <a href="https://github.com/bunrots/Lumos" target="_blank" class="bg-gray-700 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-600 transition-all transform hover:scale-105">View on GitHub</a>
+                <p class="mt-4 text-xl md:text-2xl text-cyan-300 max-w-4xl mx-auto">Accelerating the Search for Life with an AI-Driven Platform and Educational Game Interface</p>
+                <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <a href="https://github.com/bunrots/Lumos/releases/" target="_blank" class="bg-cyan-500 text-slate-900 font-bold py-3 px-8 rounded-lg text-lg hover:bg-cyan-400 transition-all transform hover:scale-105">Explore the Game</a>
+                    <!-- GitHub Button Dropdown -->
+                    <div id="hero-repo-container" class="relative">
+                        <button id="hero-repo-button" class="bg-gray-700 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-600 transition-all transform hover:scale-105 w-full sm:w-auto">View on GitHub</button>
+                        <div id="hero-repo-dropdown" class="hidden absolute left-1/2 -translate-x-1/2 mt-2 w-48 bg-slate-800/80 backdrop-blur-lg rounded-lg shadow-lg border border-slate-700 py-1 transition-all duration-300 opacity-0">
+                             <a href="https://github.com/chikobara/Lumos" target="_blank" class="block px-4 py-2 text-white hover:bg-slate-700">AI Repository</a>
+                             <a href="https://github.com/bunrots/Lumos" target="_blank" class="block px-4 py-2 text-white hover:bg-slate-700">Game Repository</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -172,6 +190,29 @@
         sections.forEach(section => {
             observer.observe(section);
         });
+
+        // Dropdown Toggle Logic for Hover
+        const setupHoverDropdown = (containerId, dropdownId) => {
+            const container = document.getElementById(containerId);
+            const dropdown = document.getElementById(dropdownId);
+
+            if (container && dropdown) {
+                container.addEventListener('mouseenter', () => {
+                    dropdown.classList.remove('hidden');
+                    setTimeout(() => dropdown.classList.remove('opacity-0'), 10);
+                });
+
+                container.addEventListener('mouseleave', () => {
+                    dropdown.classList.add('opacity-0');
+                    setTimeout(() => dropdown.classList.add('hidden'), 300); // Wait for transition to finish
+                });
+            }
+        };
+
+        setupHoverDropdown('header-repo-container', 'header-repo-dropdown');
+        setupHoverDropdown('hero-repo-container', 'hero-repo-dropdown');
+
     </script>
 </body>
 </html>
+
