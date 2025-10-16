@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumos Project | AI in Exoplanet Research</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #020617; /* Slate 950 */
+            color: #d1d5db; /* Gray 300 */
+        }
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+        }
+        .hero-bg {
+            background-image: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=2071&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .glass-effect {
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .section-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .section-fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-effect">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-white tracking-widest">LUMOS</h1>
+            <div class="hidden md:flex space-x-8 text-lg">
+                <a href="#challenge" class="hover:text-cyan-400 transition-colors">The Challenge</a>
+                <a href="#ai-pipeline" class="hover:text-cyan-400 transition-colors">The AI</a>
+                <a href="#game" class="hover:text-cyan-400 transition-colors">The Game</a>
+                <a href="https://github.com/bunrots/Lumos" target="_blank" class="hover:text-cyan-400 transition-colors">Code</a>
+            </div>
+            <div class="md:hidden">
+                <a href="https://github.com/bunrots/Lumos" target="_blank" class="text-white text-lg font-bold">GitHub</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="min-h-screen flex items-center justify-center hero-bg relative">
+            <div class="absolute inset-0 bg-black/60"></div>
+            <div class="text-center z-10 px-4">
+                <h1 class="text-6xl md:text-8xl font-black text-white uppercase tracking-wider">LUMOS</h1>
+                <p class="mt-4 text-xl md:text-2xl text-cyan-300 max-w-3xl mx-auto">Accelerating the Search for Life in the Universe with Artificial Intelligence</p>
+                <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#game" class="bg-cyan-500 text-slate-900 font-bold py-3 px-8 rounded-lg text-lg hover:bg-cyan-400 transition-all transform hover:scale-105">Explore the Game</a>
+                    <a href="https://github.com/bunrots/Lumos" target="_blank" class="bg-gray-700 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-600 transition-all transform hover:scale-105">View on GitHub</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Wrapper -->
+        <div class="container mx-auto px-6 py-20 md:py-32">
+
+            <!-- The Challenge Section -->
+            <section id="challenge" class="section-fade-in mb-24 md:mb-32">
+                <h2 class="text-4xl md:text-5xl text-white text-center">The Cosmic Haystack</h2>
+                <p class="text-lg md:text-xl text-center mt-4 max-w-3xl mx-auto text-gray-400">Finding signs of life on distant exoplanets is like searching for a whisper in a cosmic storm. Data from powerful telescopes is often faint and buried in noise, making traditional analysis slow and impractical.</p>
+                <div class="mt-12 max-w-4xl mx-auto p-8 rounded-2xl glass-effect">
+                    <h3 class="text-2xl text-white text-center">Signal vs. Reality</h3>
+                    <p class="text-center text-gray-300 mt-2">Our AI is trained to find the clean signal (left) hidden within the noisy reality (right).</p>
+                    <div class="mt-6">
+                        <!-- Placeholder for a clean vs noisy signal image -->
+                        <img src="https://placehold.co/800x300/020617/E0F2FE?text=Clean+Signal+vs.+Noisy+Reality" alt="Comparison of a clean exoplanet spectrum versus a noisy one" class="rounded-lg mx-auto">
+                    </div>
+                </div>
+            </section>
+
+            <!-- The AI Pipeline Section -->
+            <section id="ai-pipeline" class="section-fade-in mb-24 md:mb-32">
+                <h2 class="text-4xl md:text-5xl text-white text-center">The AI Pipeline</h2>
+                 <p class="text-lg md:text-xl text-center mt-4 max-w-3xl mx-auto text-gray-400">We designed an end-to-end machine learning workflow to automatically process, clean, and classify atmospheric data from raw spectra to actionable insight.</p>
+                <div class="mt-12 max-w-4xl mx-auto p-8 rounded-2xl glass-effect">
+                     <!-- Using the user-provided AI pipeline flowchart -->
+                     <img src="https://i.imgur.com/c54993.png" alt="AI Analysis System Flowchart" class="rounded-lg mx-auto">
+                </div>
+                 <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto text-center">
+                    <div class="p-6 rounded-2xl glass-effect">
+                        <h3 class="text-2xl text-cyan-400">Key Results</h3>
+                        <p class="mt-2 text-5xl font-black text-white">0.97</p>
+                        <p class="text-gray-300">F1-Score achieved by the XGBoost model in identifying biosignatures.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl glass-effect">
+                        <h3 class="text-2xl text-cyan-400">Efficiency Gains</h3>
+                        <p class="mt-2 text-5xl font-black text-white">3.5x</p>
+                        <p class="text-gray-300">Faster training speed with our GPU-accelerated XGBoost model compared to Random Forest.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- The Game Showcase Section -->
+            <section id="game" class="section-fade-in">
+                <h2 class="text-4xl md:text-5xl text-white text-center">The Lumos Experience</h2>
+                <p class="text-lg md:text-xl text-center mt-4 max-w-3xl mx-auto text-gray-400">We didn't just analyze the data—we brought it to life. Explore the TRAPPIST-1 system in an interactive 3D environment and see the results of our AI's analysis for yourself.</p>
+                <div class="mt-12 aspect-video w-full max-w-6xl mx-auto rounded-2xl overflow-hidden border-2 border-cyan-500/30 shadow-2xl shadow-cyan-500/10">
+                    <!-- 
+                        This is where the WebGL build of the Unity game would be embedded.
+                        You would replace this div with an iframe pointing to your game's index.html.
+                        For example: <iframe src="game/index.html" class="w-full h-full"></iframe>
+                    -->
+                    <div class="w-full h-full bg-slate-800 flex items-center justify-center">
+                        <div class="text-center">
+                            <h3 class="text-2xl text-white">Interactive Game Coming Soon</h3>
+                            <p class="text-gray-400 mt-2">A WebGL build of the Lumos Unity game would be embedded here.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Technology Stack Section -->
+            <section id="tech-stack" class="section-fade-in mt-24 md:mt-32">
+                <h2 class="text-3xl text-white text-center">Technology Stack</h2>
+                <div class="mt-10 flex flex-wrap justify-center items-center gap-x-8 gap-y-6">
+                    <span class="text-lg font-bold bg-slate-800 px-4 py-2 rounded-lg">Python</span>
+                    <span class="text-lg font-bold bg-slate-800 px-4 py-2 rounded-lg">TensorFlow</span>
+                    <span class="text-lg font-bold bg-slate-800 px-4 py-2 rounded-lg">Scikit-learn</span>
+                    <span class="text-lg font-bold bg-slate-800 px-4 py-2 rounded-lg">XGBoost</span>
+                    <span class="text-lg font-bold bg-slate-800 px-4 py-2 rounded-lg">Pandas</span>
+                    <span class="text-lg font-bold bg-slate-800 px-4 py-2 rounded-lg">Unity</span>
+                    <span class="text-lg font-bold bg-slate-800 px-4 py-2 rounded-lg">C#</span>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900/50 mt-20 py-10">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <p>&copy; 2025 Lumos Project by AL-Baraa Al-Ismail & Baraa Douaji.</p>
+            <p class="mt-2">Al-Sham Private University, Faculty of Informatics Engineering.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Intersection Observer for fade-in animations on scroll
+        const sections = document.querySelectorAll('.section-fade-in');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
