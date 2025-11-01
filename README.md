@@ -14,9 +14,7 @@
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
+- [License](https://github.com/chikobara/Lumos?tab=MIT-1-ov-file#)
 
 ## **About The Project**
 
@@ -84,25 +82,24 @@ You will need the following software installed on your machine:
 ### **Installation**
 
 1. **Clone this (the AI) repository:**  
-   git clone \[https://github.com/chikobara/Lumos.git\](https://github.com/chikobara/Lumos.git)  
-   cd Lumos
+   `git clone https://github.com/chikobara/Lumos`
 
-2. **Set up a virtual environment (recommended):**  
-   python \-m venv venv  
-   source venv/bin/activate  \# On Windows: venv\\Scripts\\activate
+   `cd Lumos`
+
+2. **Set up a virtual environment (Python 3.11 is recommended):**  
+   `python \-m venv venv`
+
+   `source venv/bin/activate  \# On Windows: venv\\Scripts\\activate`
 
 3. **Install Python dependencies:**  
-   pip install \-r requirements.txt
+   `pip install \-r requirements.txt`
 
 ## **Usage**
 
 The AI pipeline is organized into a series of Jupyter Notebooks that should be run in sequence. Open this directory in a code editor that supports notebooks, such as VS Code or Jupyter Lab.
 
-1. 01\_... (Optional) Notebooks for initial data exploration.  
-2. 02\_Data\_Generation.ipynb: Run this notebook first to generate the full noisy and clean datasets.  
+1. `notebooks/01_Data_Exploration.ipynb` (Optional) Notebooks for initial data exploration.  
+2. `notebooks/02_(...).ipynb` Data Generation: Run this notebook first to generate the full noisy and clean datasets.  
    * *Note: This is computationally intensive and may take a long time.*  
-3. 03\_AE\_...ipynb: Run the appropriate notebook (e.g., 03\_AE\_CH4.ipynb) to train the Denoising Autoencoder for a specific biosignature. This will save a .keras model file.  
-4. 04\_...\_RF.ipynb: Run the corresponding notebook (e.g., 04\_CH4\_RF.ipynb) to load the trained autoencoder, clean the data, and then train and evaluate the Random Forest and XGBoost classifiers.
-
-The final JSON output (planetdata.json) used by the game is generated from these notebooks.  
-For instructions on running the game interface, please see the [**Lumos Game Repository (bunrots/Lumos)**](https://github.com/bunrots/Lumos).
+3. `notebooks/03_(...).ipynb`: Run the appropriate notebook (e.g., 03\_AE\_CH4.ipynb) to train the Denoising Autoencoder for a specific biosignature. This will save a .keras model file.  
+4. `notebooks/04_(...).ipynb`: Run the corresponding notebook (e.g., 04\_CH4\_RF.ipynb) to load the trained autoencoder, clean the data, and then train and evaluate the Random Forest and XGBoost classifiers.
