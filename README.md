@@ -1,41 +1,108 @@
-# MultiREx
-## Planetary transmission spectra generator
+# **Lumos: AI-Driven Exoplanet Biosignature Classification**
 
-## Description
+**Lumos is a dual-component project designed to accelerate the search for life in the universe. This repository contains the AI Analysis Pipeline used to detect potential biosignatures in noisy exoplanet data. The [Educational Game Interface](https://github.com/bunrots/Lumos) is in a separate repository.**
 
-This folder contains the notebooks and data necessary to replicate the results and plots of the scientific article titled "Machine-assisted classification of potential biosignatures in Earth-like exoplanets using low signal-to-noise ratio transmission spectra." Here, you will find all the procedures, scripts, and data files used in the numerical experiments presented in the study.
+## **Table of Contents**
 
-You can download the trained models generated in this series of notebooks at the following [link](https://drive.google.com/drive/folders/1ozPE2qjo_8gPvC4tWKrV9OjCKKC5VEKV?usp=drive_link). To use them, your input spectrum should span approximately 0.7 to 5.3 µm with a total of 385 points. First, process the spectrum using one of the autoencoders (files labeled with `AE`), and subsequently pass this output into one of the classifiers (files labeled with `RF`).
+* [About The Project](#bookmark=id.srsb0ybhvt1q)  
+  * [The Challenge](#bookmark=id.9ord4l1dp1n)  
+  * [Our Solution](#bookmark=id.3qpz5wn70va9)  
+* [Key Results & Highlights](#bookmark=id.rsui70vt5nzf)  
+* [Built With](#bookmark=id.kl43p66b7iau)  
+* [Methodology: The AI Pipeline](#bookmark=id.wknhq92z6yjp)  
+* [Getting Started](#bookmark=id.yd7qu374ny5s)  
+  * [Prerequisites](#bookmark=id.vkbqfatglgq0)  
+  * [Installation](#bookmark=id.8zgobqrzsrj7)  
+* [Usage](#bookmark=id.9ahrkcpfqw7f)  
+* [Contributing](#bookmark=id.o5rxp17emjdk)  
+* [License](#bookmark=id.2ozp3lwqi20w)  
+* [Acknowledgments](#bookmark=id.9ctqz7hcrj7c)
 
-## Requirements
+## **About The Project**
 
-The following Python libraries are required to run the scripts and notebooks in this folder:
+### **The Challenge**
 
-- multirex
-- pandexo and its dependencies
-- scikit-learn
-- plotly
-- POSEIDON
+Modern instruments like the James Webb Space Telescope (JWST) can analyze the atmospheres of distant exoplanets. However, the signals (spectra) are incredibly faint and often buried in instrumental and stellar noise. This results in a very low Signal-to-Noise Ratio (SNR).  
+Traditional analysis methods require hundreds of hours of telescope time to confirm a signal for a single planet, making the search for life a slow, expensive, and impractical process.  
+*(A visual comparison of a clean, theoretical signal vs. a realistic, noisy signal our AI is trained to analyze)*
 
-## Structure
+### **Our Solution**
 
-The folder is organized as follows:
+Lumos addresses this challenge with a two-part system:
 
-- `spec_data/`: Contains the transmission spectra as CSV files. Each file contains spectra for a specific combination of molecules.
-- `spec_earth/`: Contains the notebook required for the realistic case analysis, the high-resolution transmission spectra of Earth used in the study, the transmission spectra adapted to TRAPPIST-1e, and the observed transmission spectra simulated by Pandexo, differentiated by the number of transits.
-- `stellar_contamination`: Contains the epsilon factor for the stellar contamination. Each file are computed for a specific combitation of spot and facula fractions.
-- Main folder: Contains the notebooks used to generate the results and plots of the study. The notebooks are organized as follows:
-  - `01_pandexo_spec_analysis.ipynb`: This notebook contains the analysis of the transmission for use in NIRSpec MIRI. The first part generates the `waves.txt` file, representing the range of wavelengths used in the study. The second part analyzes the relationship between the number of transits and the SNR.
-  - `02_spec_data.ipynb`: This notebook generates the transmission spectra for the molecules used in the study.
-  - `02_stellar_contamination_epsilon.ipynb`: This notebook generates the epsilon factors for the stellar contamination.
-  - `03_AE.ipynb`: This notebook is used to train the common AutoEncoder (AE).
-  - `03_AE_CH4.ipynb`: This notebook is used to train the specialized AutoEncoder for CH4.
-  - `03_AE_O3.ipynb`: This notebook is used to train the specialized AutoEncoder for O3.
-  - `03_AE_H2O.ipynb`: This notebook is used to train the specialized AutoEncoder for H2O.
-  - `04_CH4_RF.ipynb`: This notebook is used to train the specialized Random Forest for CH4.
-  - `04_O3_RF.ipynb`: This notebook is used to train the specialized Random Forest for O3.
-  - `04_H2O_RF.ipynb`: This notebook is used to train the specialized Random Forest for H2O.
-  - `05_BC_RF.ipynb`: This notebook contains the training of the Binary Classification (BC) Random Forest and the analysis and plots performed in its section of the paper.
-  - `05_MC_RF.ipynb`: This notebook contains the training of the Multilabel Classification (MC) Random Forest and the analysis and plots performed in its section of the paper.
-  - `05_SC_RF.ipynb`: This notebook contains the Specialized Classification (SC) Random Forest, which is the result of the ensemble of the specialized RFs, and includes the analysis and plots performed in its section of the paper.
-  - `05_realistic.ipynb`: This notebook contains the analysis of the realistic case, using the data contained in the `spec_earth/` folder.
+1. **(This Repo) AI Analysis Pipeline**: An end-to-end machine learning workflow that automatically processes, cleans, and classifies noisy exoplanet spectra to identify promising candidates for further study.  
+2. [**Educational Game Interface**](https://github.com/bunrots/Lumos): An interactive 3D application developed in Unity that visualizes the AI's findings, allowing anyone to explore the TRAPPIST-1 system and understand the results in an engaging way.
+
+## **Key Results & Highlights**
+
+Our AI pipeline demonstrated high accuracy and efficiency in identifying potential biosignatures (e.g., CH₄, H₂O, O₃):
+
+* ⭐ **98.8% Variance Explained**: Our Denoising Autoencoder (built with TensorFlow/Keras) successfully reconstructed clean spectra from noisy inputs, achieving an R² score of 0.988.  
+* 🎯 **Up to 97% F1-Score**: The final XGBoost classifier achieved a 96% Recall and 97% F1-Score in identifying biosignatures, minimizing the chance of missing a potentially habitable world.  
+* 🚀 **3.5x Faster Training**: By leveraging GPU acceleration, our XGBoost model trained approximately **3.5 times faster** than the baseline Random Forest model, proving its efficiency for larger datasets.
+
+## **Built With**
+
+This project was brought to life using a combination of powerful technologies for data science and game development.  
+**AI & Data Science (This Repository):**
+
+* [Python 3.11](https://www.python.org/)  
+* [TensorFlow / Keras](https://www.tensorflow.org/) (for Denoising Autoencoder)  
+* [Scikit-learn](https://scikit-learn.org/) (for Random Forest & evaluation)  
+* [XGBoost](https://xgboost.ai/) (for the high-performance classifier)  
+* [Pandas](https://pandas.pydata.org/)  
+* [NumPy](https://numpy.org/)  
+* [Jupyter Notebooks](https://jupyter.org/) (for development and experimentation)  
+* [Matplotlib / Seaborn](https://matplotlib.org/) (for visualization)
+
+**Game & Visualization ([bunrots/Lumos](https://github.com/bunrots/Lumos)):**
+
+* [Unity Engine](https://unity.com/)  
+* [C\#](https://docs.microsoft.com/en-us/dotnet/csharp/)
+
+## **Methodology: The AI Pipeline**
+
+The core of this repository is a multi-stage AI workflow inspired by the latest academic research.
+
+1. **Synthetic Data Generation**: We created a large dataset of over 700,000 synthetic exoplanet spectra (based on TRAPPIST-1e), incorporating various atmospheric compositions, stellar contamination, and noise levels (SNR 1-10).  
+2. **Denoising with Autoencoder**: A deep learning autoencoder was trained to "clean" the noisy spectra, isolating the underlying atmospheric signal from the noise.  
+3. **Model Training**: The cleaned spectra were used as input to train two separate classifiers for comparison: a standard Random Forest and a GPU-accelerated XGBoost model.  
+4. **Evaluation & Export**: We evaluated the models using F1-Score, Precision, and Recall. The final classification results were exported as a JSON file (planetdata.json) to be consumed by the Unity game.
+
+## **Getting Started**
+
+To get a local copy up and running, follow these simple steps.
+
+### **Prerequisites**
+
+You will need the following software installed on your machine:
+
+* Python 3.11 or later  
+* Pip (Python package installer)  
+* Git
+
+### **Installation**
+
+1. **Clone this (the AI) repository:**  
+   git clone \[https://github.com/chikobara/Lumos.git\](https://github.com/chikobara/Lumos.git)  
+   cd Lumos
+
+2. **Set up a virtual environment (recommended):**  
+   python \-m venv venv  
+   source venv/bin/activate  \# On Windows: venv\\Scripts\\activate
+
+3. **Install Python dependencies:**  
+   pip install \-r requirements.txt
+
+## **Usage**
+
+The AI pipeline is organized into a series of Jupyter Notebooks that should be run in sequence. Open this directory in a code editor that supports notebooks, such as VS Code or Jupyter Lab.
+
+1. 01\_... (Optional) Notebooks for initial data exploration.  
+2. 02\_Data\_Generation.ipynb: Run this notebook first to generate the full noisy and clean datasets.  
+   * *Note: This is computationally intensive and may take a long time.*  
+3. 03\_AE\_...ipynb: Run the appropriate notebook (e.g., 03\_AE\_CH4.ipynb) to train the Denoising Autoencoder for a specific biosignature. This will save a .keras model file.  
+4. 04\_...\_RF.ipynb: Run the corresponding notebook (e.g., 04\_CH4\_RF.ipynb) to load the trained autoencoder, clean the data, and then train and evaluate the Random Forest and XGBoost classifiers.
+
+The final JSON output (planetdata.json) used by the game is generated from these notebooks.  
+For instructions on running the game interface, please see the [**Lumos Game Repository (bunrots/Lumos)**](https://github.com/bunrots/Lumos).
