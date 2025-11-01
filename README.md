@@ -4,19 +4,19 @@
 
 ## **Table of Contents**
 
-* [About The Project](#bookmark=id.srsb0ybhvt1q)  
-  * [The Challenge](#bookmark=id.9ord4l1dp1n)  
-  * [Our Solution](#bookmark=id.3qpz5wn70va9)  
-* [Key Results & Highlights](#bookmark=id.rsui70vt5nzf)  
-* [Built With](#bookmark=id.kl43p66b7iau)  
-* [Methodology: The AI Pipeline](#bookmark=id.wknhq92z6yjp)  
-* [Getting Started](#bookmark=id.yd7qu374ny5s)  
-  * [Prerequisites](#bookmark=id.vkbqfatglgq0)  
-  * [Installation](#bookmark=id.8zgobqrzsrj7)  
-* [Usage](#bookmark=id.9ahrkcpfqw7f)  
-* [Contributing](#bookmark=id.o5rxp17emjdk)  
-* [License](#bookmark=id.2ozp3lwqi20w)  
-* [Acknowledgments](#bookmark=id.9ctqz7hcrj7c)
+- [About The Project](#about-the-project)
+  - [The Challenge](#the-challenge)
+  - [Our Solution](#our-solution)
+- [Key Results & Highlights](#key-results--highlights)
+- [Built With](#built-with)
+- [Methodology: The AI Pipeline](#methodology-the-ai-pipeline)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
 
 ## **About The Project**
 
